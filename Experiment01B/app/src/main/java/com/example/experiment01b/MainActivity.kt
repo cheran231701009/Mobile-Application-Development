@@ -1,0 +1,33 @@
+package com.example.experiment01b
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private var count = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val txtCount = findViewById<TextView>(R.id.txtCount)
+        val btnCheckIn = findViewById<Button>(R.id.btnCheckIn)
+        val btnCheckOut = findViewById<Button>(R.id.btnCheckOut)
+
+        btnCheckIn.setOnClickListener {
+            count++
+            txtCount.text = count.toString()
+        }
+
+        btnCheckOut.setOnClickListener {
+            if (count > 0) {
+                count--
+                txtCount.text = count.toString()
+            }
+        }
+    }
+}
+
